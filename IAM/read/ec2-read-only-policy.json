@@ -1,0 +1,37 @@
+{
+  "Version": "2012-10-17",
+  "Id": "EC2ReadOnlyAccessPolicy",
+  "Statement": [
+    {
+      "Sid": "AllowEC2DescribeAndGetActionsOnly",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "ec2:GetConsoleOutput",
+        "ec2:GetConsoleScreenshot",
+        "ec2:GetInstanceTypesFromInstanceRequirements"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowEC2ConsoleMonitoringMetrics",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowAutoScalingAndELBReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "autoscaling:Describe*",
+        "elasticloadbalancing:Describe*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
